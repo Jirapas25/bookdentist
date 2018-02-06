@@ -36,7 +36,7 @@ app.get("/api/clinics", function(req, res) {
   });
 });
 
-app.get("/api/test", function(req, res) {
+app.get("/api/testapi", function(req, res) {
   db.collection("test").find({},function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
