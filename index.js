@@ -1,4 +1,4 @@
-var express = require("express");
+,var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -27,7 +27,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 
 
 app.get("/api/clinics", function(req, res) {
-  db.collection(CLINIC_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(CLINIC_COLLECTION).find({},function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
