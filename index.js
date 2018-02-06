@@ -27,7 +27,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 
 
 app.get("/api/clinics", function(req, res) {
-  db.collection(CLINIC_COLLECTION).find({},function(err, docs) {
+  db.collection(CLINIC_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
@@ -37,7 +37,7 @@ app.get("/api/clinics", function(req, res) {
 });
 
 app.get("/api/testapi", function(req, res) {
-  db.collection("test").find({},function(err, docs) {
+  db.collection("test").findOne({},function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
