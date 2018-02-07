@@ -36,12 +36,3 @@ app.get("/api/clinics", function(req, res) {
   });
 });
 
-app.get("/api/testapi", function(req, res) {
-  db.collection("test").findOne({},function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
-    } else {
-      res.status(200).json(docs);
-    }
-  });
-});
